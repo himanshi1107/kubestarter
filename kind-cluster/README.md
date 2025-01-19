@@ -102,6 +102,11 @@ Use kubectl to interact with the cluster:
 kubectl cluster-info --context kind-tws-cluster
 ```
 
+How to set context as default:
+```bash
+kubectl config use-context kind-tws-cluster
+```
+
 ## 4. Setting Up the Kubernetes Dashboard
 Deploy the Dashboard
 Apply the Kubernetes Dashboard manifest:
