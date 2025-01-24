@@ -42,18 +42,21 @@
      name: nginx-deployment
      namespace: nginx
    spec:
-     replicas: 3
+     replicas: 2
      selector:
        matchLabels:
          app: nginx-app
      template:
        metadata:
+         name: nginx-pod-dep
          labels:
            app: nginx-app
        spec:
          containers:
            - name: nginx-container
              image: nginx:latest
+             ports:
+             - containerPort: 80 
    ```
 
 ### Nginx Namespace Deployment Steps:
@@ -64,10 +67,15 @@
    kubectl create namespace nginx
    ```
 
-2. **Apply the Nginx Pod, Service, and Deployment YAMLs within the "nginx" Namespace:**
+2. **Apply the Nginx Pod, Service and Deployment YAMLs within the "nginx" Namespace:**
 
    ```sh
    kubectl apply -f nginx-pod.yaml -n nginx
    kubectl apply -f nginx-service.yaml -n nginx
    kubectl apply -f nginx-deployment.yaml -n nginx
+   ```
+3. **Describe the Pod, Service and Deployment details**
+
+   ```sh
+   kubectl describe pod/nginx-pod -n nginx
    ```
