@@ -12,6 +12,8 @@
      containers:
        - name: nginx-container
          image: nginx:latest
+         ports:
+         - containerPort: 80 
    ```
 
 2. **Nginx Service Manifest in "nginx" Namespace:**
